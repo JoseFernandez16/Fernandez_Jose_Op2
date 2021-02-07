@@ -1,0 +1,413 @@
+<ScreenExamen>:
+    Screen: #PANTALLA PRINCIPAL, DE INICIO
+        name: 'sc_prin'
+        BoxLayout:               
+            orientation: 'vertical'
+            Label:
+                id:titulo
+                text:'BIENVENIDO AL MENÚ DE INICIO'
+                font_size:40                
+                bold: True  
+                canvas.before:
+                    Color:
+                        rgb:25/255,25/255,112/255
+                    Rectangle:
+                        size:self.size
+                        pos:self.pos
+            BoxLayout:
+                orientation: 'vertical'
+                Button:
+                    text: 'Registrar Estudiante'
+                    font_size: 40
+                    on_release: root.current = 'sc_1' #root.Registar_Alumno() 
+                Button:
+                    text: 'Listado de Estudiantes'
+                    font_size: 40
+                    on_release: root.current = 'sc_2'
+                Button:
+                    text: 'Buscar Estudiante'
+                    font_size: 40
+                    on_release: root.current = 'sc_3'
+                Button:
+                    text: 'Modificar notas'
+                    font_size: 40
+                    on_release: root.current = 'sc_4'
+
+    Screen: #PANTALLA DE REGISTRO DE ESTUDIANTES
+        name: 'sc_1'
+        canvas.before:
+            Color:
+                rgb:25/255,25/255,112/255
+            Rectangle:
+                size:self.size
+                pos:self.pos
+        Button:
+            text:'INICIAR'
+            pos:(710,400)
+            size_hint:(.10,.10)
+            on_release: root.Registar_Alumno()
+        Label:
+            text:'REGISTRAR ESTUDIANTES'
+            font_size:40
+            pos:(355,440)
+            size_hint:(.15,.15)
+            bold: True
+            
+        Label:
+            text:'CÓDIGO: '
+            font_size:30
+            pos:(50,380)
+            size_hint:(.1,.15)
+
+        Label:
+            id:codigo
+            text: ''
+            color:(0,0,0,1)
+            bg_co: (255,255,255,1)
+            canvas.before:
+                Color:
+                    rgba: self.bg_co
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            font_size:23
+            pos:(200,390)
+            size_hint:(.5,.1)
+            
+        Label:
+            text:'NOMBRE: '
+            font_size:30
+            pos:(50,320)
+            size_hint:(.1,.15)
+            
+        Label:
+            id:nombre
+            text: ''
+            color:(0,0,0,1)
+            bg_co: (255,255,255,1)
+            canvas.before:
+                Color:
+                    rgba: self.bg_co
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            font_size:23
+            pos:(200,330)
+            size_hint:(.5,.1)
+        Label:
+            text:'APELLIDO: '
+            font_size:30
+            pos:(50,260)
+            size_hint:(.1,.15)
+        
+        Label:
+            id: apellido
+            text: ''
+            color:(0,0,0,1)
+            bg_co: (255,255,255,1)
+            canvas.before:
+                Color:
+                    rgba: self.bg_co
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            font_size:23
+            pos:(200,270)
+            size_hint:(.5,.1)
+        Label:
+            text:'EDAD: '
+            font_size:30
+            pos:(50,200)
+            size_hint:(.1,.15)
+            
+        Label:
+            id:edad
+            text: ''
+            color:(0,0,0,1)
+            bg_co: (255,255,255,1)
+            canvas.before:
+                Color:
+                    rgba: self.bg_co
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            font_size:23
+            pos:(200,210)
+            size_hint:(.5,.1)
+        Label:
+            text:'NOTA_1'
+            font_size:30
+            pos:(50,140)
+            size_hint:(.1,.15)
+        
+        Label:
+            id: nota1
+            text: ''
+            color:(0,0,0,1)
+            bg_co: (255,255,255,1)
+            canvas.before:
+                Color:
+                    rgba: self.bg_co
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            font_size:23
+            pos:(200,150)
+            size_hint:(.5,.1)
+        Label:
+            text:'NOTA_2'
+            font_size:30
+            pos:(50,80)
+            size_hint:(.1,.15)
+        
+        Label:
+            id: nota2
+            text:''
+            color:(0,0,0,1)
+            bg_co: (255,255,255,1)
+            canvas.before:
+                Color:
+                    rgba: self.bg_co
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            font_size:23
+            pos:(200,90)
+            size_hint:(.5,.1)
+        Label:
+            text:'NOTA_3'
+            font_size:30
+            pos:(50,20)
+            size_hint:(.1,.15)
+
+        Label:
+            id:nota3
+            text:''
+            color:(0,0,0,1)
+            bg_co: (255,255,255,1)
+            canvas.before:
+                Color:
+                    rgba: self.bg_co
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            font_size:23
+            pos:(200,30)
+            size_hint:(.5,.1)
+        Button:
+            text:'VOLVER'
+            pos:(710,0)
+            size_hint:(.10,.10)
+            on_release:root.current = 'sc_prin'
+
+
+    Screen:  #PANTALLA DE LISTADO DE ESTUDIANTES
+    ################################################################################################
+    ################################################################################################
+        name: 'sc_2'
+        canvas.before:
+            Color:
+                rgb:25/255,25/255,112/255
+            Rectangle:
+                size:self.size
+                pos:self.pos
+        Label:
+            text: 'LISTA DE ESTUDIANTES'
+            font_size:40
+            pos:(355,440)
+            size_hint:(.1,.15)
+            bold: True
+        Button:
+            text:'INICIAR'
+            pos:(710,420)
+            size_hint:(.10,.10)
+            on_release: root.Mostrar_Alumno()
+        Label:
+            id:registro
+            text:''
+            color:(0,0,0,1)
+            bg_co: (255,255,255,1)
+            canvas.before:
+                Color:
+                    rgba: self.bg_co
+                Rectangle:
+                    size: self.size
+                    pos: self.pos   
+            font_size:24
+            text_size: self.size
+            valign:'top'
+            font_style:'H5'
+            font_name: 'Arial'
+            pos:(50,10)
+            size_hint:(.8,.8)
+        Button:
+            text:'VOLVER'
+            pos:(710,0)
+            size_hint:(.10,.10)
+            on_release:root.current = 'sc_prin'   
+
+    Screen: #PANTALLA DE BUSQUEDA DE ESTUDIANTES
+    ################################################################################################
+    ################################################################################################
+        name: 'sc_3'
+        canvas.before:
+            Color:
+                rgb:25/255,25/255,112/255
+            Rectangle:
+                size:self.size
+                pos:self.pos
+        Label:
+            text: 'BUSCAR ESTUDIANTE'
+            font_size:40
+            pos:(355,440)
+            size_hint:(.1,.15)
+            bold: True
+        
+        Label:
+            text:'CÓDIGO: '
+            font_size:30
+            pos:(50,380)
+            size_hint:(.1,.15)
+            
+        TextInput:
+            id:code
+            multiline:False
+            font_size:23
+            pos:(200,390)
+            size_hint:(.5,.1)
+            on_text_validate:root.Buscar_Alumno()
+        
+        Label:
+            id:estudiante
+            text:''
+            color:(0,0,0,1)
+            bg_co: (255,255,255,1)
+            canvas.before:
+                Color:
+                    rgba: self.bg_co
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            font_style:'H5'
+            text_size: self.size
+            valign:'top'
+            font_name: 'Arial'
+            font_size:25
+            pos:(100,10)
+            size_hint:(.7,.7)
+
+        Button:
+            text:'VOLVER'
+            pos:(710,0)
+            size_hint:(.10,.10)
+            on_release:root.current = 'sc_prin'
+
+    Screen:  #PANTALLA DE ACTUALIZACIÓN DE NOTAS
+    ################################################################################################
+    ################################################################################################
+        name: 'sc_4'
+        canvas.before:
+            Color:
+                rgb:25/255,25/255,112/255
+            Rectangle:
+                size:self.size
+                pos:self.pos
+        Label:
+            text: 'MODIFICAR NOTAS'
+            font_size:40
+            pos:(355,440)
+            size_hint:(.1,.15)
+            bold: True
+        Button:
+            text:'INICIAR'
+            pos:(700,400)
+            size_hint:(.10,.10)
+            on_release: root.Modificar_Alumno()
+        Label:
+            text:'CÓDIGO: '
+            font_size:30
+            pos:(50,380)
+            size_hint:(.1,.15)
+
+        Label:
+            id: codigo_al
+            text: ''
+            color:(0,0,0,1)
+            bg_co: (255,255,255,1)
+            canvas.before:
+                Color:
+                    rgba: self.bg_co
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            font_size:23
+            pos:(200,390)
+            size_hint:(.5,.1)       
+        Label:
+            text:'NOTA_1'
+            font_size:30
+            pos:(50,320)
+            size_hint:(.1,.15)
+        
+        Label:
+            id: nota1_al
+            text: ''
+            color:(0,0,0,1)
+            bg_co: (255,255,255,1)
+            canvas.before:
+                Color:
+                    rgba: self.bg_co
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            font_size:23
+            pos:(200,330)
+            size_hint:(.5,.1)
+
+        Label:
+            text:'NOTA_2'
+            font_size:30
+            pos:(50,260)
+            size_hint:(.1,.15)
+        
+        Label:
+            id: nota2_al
+            text: ''
+            color:(0,0,0,1)
+            bg_co: (255,255,255,1)
+            canvas.before:
+                Color:
+                    rgba: self.bg_co
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            font_size:23
+            pos:(200,270)
+            size_hint:(.5,.1)
+
+        Label:
+            text:'NOTA_3'
+            font_size:30
+            pos:(50,200)
+            size_hint:(.1,.15)
+
+        Label:
+            id: nota3_al
+            text: ''
+            color:(0,0,0,1)
+            bg_co: (255,255,255,1)
+            canvas.before:
+                Color:
+                    rgba: self.bg_co
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            font_size:23
+            pos:(200,210)
+            size_hint:(.5,.1)
+        
+        Button:
+            text:'VOLVER'
+            pos:(710,0)
+            size_hint:(.10,.10)
+            on_release:root.current = 'sc_prin'
